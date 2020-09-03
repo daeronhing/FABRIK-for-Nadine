@@ -74,7 +74,11 @@ def iterate(target, tolerance):
     if((target - joint_positions['shoulder']).length >= 57.1):
         len_share = 13.7 / (joint_positions['origin'] - target).length
         joint_positions['shoulder'] = (1-len_share)*joint_positions['origin'] + len_share*target
-
+    
+    elif((target - joint_positions['elbow']).length <= 0.01):
+        arr = get_wrist_position([0, 0.1, 0.1, 0.1, 1])
+        joint_positions['wrist'] = vector(arr)
+        
     # ____________________________________________________________________________________________
     # __________________test if shoulder is away from x-y plane___________________________________
     # ____________________________________________________________________________________________
