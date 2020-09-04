@@ -8,10 +8,6 @@ joint_positions = {
                     'wrist'       : vector(13.7, -54.3053, -17.6449)
                   }
 
-target = vector(21.04196908,	-45.4760174,	-33.73708451)
-
-
-
 def getTransformMatrix(theta, d, a, alpha):
     T = np.array([[np.cos(theta) , -np.sin(theta)*np.cos(alpha) ,  np.sin(theta)*np.sin(alpha) , a*np.cos(theta)],
                   [np.sin(theta) ,  np.cos(theta)*np.cos(alpha) , -np.cos(theta)*np.sin(alpha) , a*np.sin(theta)],
