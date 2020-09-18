@@ -45,7 +45,7 @@ def get(x):
             current_joints.append(value)
         return(current_joints)
 
-def generate():
+def dict_values():
     a = list(test.values())
     a = str(a)
     a = a.replace(' ','')
@@ -83,3 +83,8 @@ def trajectory(setpoint, frequency = 30, move_time = 2):
         arr = arr.reshape(1,(frequency*move_time))
         trajectory.append(arr)
     return(trajectory)
+
+def generate_line(h,m,s,f):
+    time_stamp = str('{:02}:{:02}:{:02}.{:02}').format(h,m,s,f)
+    line = time_stamp + ',' + dict_values()
+    return line
