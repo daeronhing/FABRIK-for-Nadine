@@ -31,13 +31,10 @@ test = {
 
 joints = ['Right shoulder up/down','Right arm up/down','Right arm open/close','Right upperarm turn','Right elbow','Right forearm turn','Right wrist']
 
-
 import numpy as np
 import os.path
 import matplotlib.pyplot as plt
 from FABRIK import out_of_range_condition
-
-
 
 def modify(x,y):
     test[x] = y
@@ -72,17 +69,14 @@ def convertor(params):
         converted_params.append(bin)
     return converted_params
 
-
 def mjtg(current, setpoint, frequency, move_time):
     traj = []
     timefreq = int(move_time * frequency)
 
-    for time in range(1, timefreq):
-        value = round (current + (setpoint - current) *(10.0 * (time/timefreq)**3 - 15.0 * (time/timefreq)**4 + 6.0 * (time/timefreq)**5))
-        # traj.append(current + (setpoint - current) *(10.0 * (time/timefreq)**3 - 15.0 * (time/timefreq)**4 + 6.0 * (time/timefreq)**5))
+    for time in range(1, timefreq+1):
+        value = round(current + (setpoint - current) * (10.0*(time/timefreq)**3 - 15.0*(time/timefreq)**4 + 6.0*(time/timefreq)**5))
         traj.append(value)
     return traj
-
 
 def create_trajectory(setpoint, frequency, move_time):
     trajectory_list = []
@@ -131,9 +125,44 @@ def generate(setpoint, frequency = 30, move_time = 2):
         else:
             f = 0
             s += 1
-            
+
+    for i in range(150):
+        line = generate_line(h,m,s,f)
+        listfile.writelines(line)
+        listfile.write('\n')
+
+        if (f<29):
+            f += 1
+        else:
+            f = 0
+            s += 1
+
+    trajectory = create_trajectory([0,0,0,0,0,0,0], frequency, move_time)
+
+    for i in range(frequency*move_time):
+        shoulder = trajectory[0][i]
+        arm_ud   = trajectory[1][i]
+        arm_oc   = trajectory[2][i]
+        u_turn   = trajectory[3][i]
+        elbow    = trajectory[4][i]
+        f_turn   = trajectory[5][i]
+        wrist    = trajectory[6][i]
+
+        num = [shoulder, arm_ud, arm_oc, u_turn, elbow, f_turn, wrist]
+        for j in range(len(num)):
+            modify(joints[j],num[j])
+
+        line = generate_line(h,m,s,f)
+        listfile.writelines(line)
+        listfile.write('\n')
+
+        if (f<29):
+            f += 1
+        else:
+            f = 0
+            s += 1
+
     listfile.close()
-# print(generate(20,30,2))
 
 
 
