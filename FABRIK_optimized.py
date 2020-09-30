@@ -18,6 +18,7 @@ joint_positions = {
                   }
 
 
+
 def get_oc_angle():
     theta3 = -arccos((joint_positions['elbow'].length**2 - 1148.69) / (849.4*sin(rad(72))))
     return theta3, (theta3 + np.pi/2)
@@ -68,7 +69,7 @@ def get_uturn_angle(ts,tud,toc,te):
         else:
             testing = [ts, tud, toc, i, te]
             test = vector(get_wrist_position(testing))
-            if ((test - joint.positions['wrist']).length < 1):
+            if ((test - joint_positions['wrist']).length < 1):
                 theta_uturn = i
                 break
 
