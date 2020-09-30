@@ -4,7 +4,7 @@
 - Obtained using rigid transformation to characterize the relative movement allowed at each joint and define the dimensions of each link.
 - Result is a sequence of rigid transformations of alternating joints and link transformations from the base to its end link.
 
-To get the transformation matrix of each link, simply input the required DH parameters of each joint into the function *getTransformMatrix()*.
+Use *getTransformMatrix()* to get the transformation matrix of each link by inputting required DH parameters.
 
 Function *get_0T3()* will return result matrix of transformation from base to 3rd link.
 
