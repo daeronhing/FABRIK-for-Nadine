@@ -34,7 +34,7 @@ joints = ['Right shoulder up/down','Right arm up/down','Right arm open/close','R
 import numpy as np
 import os.path
 import matplotlib.pyplot as plt
-from FABRIK import out_of_range_condition
+from FABRIK_optimized import out_of_range_condition
 
 def modify(x,y):
     test[x] = y
