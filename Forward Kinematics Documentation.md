@@ -1,8 +1,8 @@
 # Forward Kinematics
 
-- refers to the use of kinematic equations of a robot to compute the position of the end-effector from specified values for the joint parameters.
-- obtained using rigid transformation to characterize the relative movement allowed at each joint and define the dimensions of each link.
-- result is a sequence of rigid transformations alternating joint and link transformations from the base of the chain to its end link.
+- Refers to the use of kinematic equations of a robot to compute the position of the end-effector from specified values for the joint parameters.
+- Obtained using rigid transformation to characterize the relative movement allowed at each joint and define the dimensions of each link.
+- Result is a sequence of rigid transformations of alternating joints and link transformations from the base to its end link.
 
 To get the transformation matrix of each link, simply input the required DH parameters of each joint into the function *getTransformMatrix()*.
 
