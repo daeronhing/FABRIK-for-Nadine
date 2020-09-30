@@ -123,7 +123,7 @@ def iteration(t,tolerance):
     iterations = 0
     need_test = False
 
-    if ((t - joint_positions['elbow']) < 0.001):
+    if ((t - joint_positions['elbow']).length < 0.001):
         arr = get_elbow_position([0, 0.1, 0.1])
         joint_positions['elbow'] = vector(arr)
         arr = get_wrist_position([0, 0.1, 0.1, 0.1, 1])
