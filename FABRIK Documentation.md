@@ -7,13 +7,13 @@ Function *out_of_range_condition()* is to get new postions of joints with refere
 If it is out of range, it will be pushed back within the range.
 If the target is too far to be reached, robotic arm will straigten and point towards the target.
 
-Function *iteration()* will let the position of wrist be the position of target and calculate out the position of each joint with repect to the position of wrist when target is within the reachable range. 
-- It requires input values of ***target position*** and tolerance
-- The value of **tolerance** can be changed acoording to reality demands.
+Function *iteration()* will let the position of wrist be the position of target and calculate out the position of each joint with repect to the position of wrist when target is within the reachable range.  
+1. It requires input values of ***target position*** and tolerance.  
+2. The value of **tolerance** can be changed acoording to reality demands.
 
 
-Function *inverse()* is used to determine
-- whether the straight-line distance between target and shoulder is greater than the total length of robotic arm (57.1 cm)
-- whether the straight-line distance between target and wrist is greater than the tolerance.  
+Function *inverse()* is used to determine:  
+1. whether the straight-line distance between target and shoulder is greater than the total length of robotic arm (57.1 cm)  
+2. whether the straight-line distance between target and wrist is greater than the tolerance.  
 and will return corresponding values of joint angles.
 
