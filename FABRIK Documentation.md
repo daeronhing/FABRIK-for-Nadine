@@ -14,6 +14,6 @@ Function *iteration()* will let the position of wrist be the position of target 
 
 Function *inverse()* is used to determine
 - whether the straight-line distance between target and shoulder is greater than the total length of all joints (57.1 cm)
-- whether the straight-line distance between target and wrist is greater than the tolerance.
- and will return corresponding values of joint angles.
+- whether the straight-line distance between target and wrist is greater than the tolerance.  
+and will return corresponding values of joint angles.
 
