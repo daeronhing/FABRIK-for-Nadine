@@ -258,6 +258,7 @@ def inverse(t,tol=0.1):
     target = vector(t)
 
     if((t - joint_positions['shoulder']).length > 57.1):
+        print('Out of range')
         return out_of_range_condition(target)
 
     elif((t - joint_positions['wrist']).length < tol):
