@@ -223,7 +223,7 @@ def iteration(t,tolerance):
 
         theta_elbow = get_elbow_angle()
 
-        theta_uturn = get_uturn_angle(theta_shoulder, theta_arm_ud, theta_arm_oc, theta_elbow, t)
+        theta_uturn = get_uturn_angle(theta_shoulder, theta_arm_ud, theta_arm_oc, theta_elbow)
         need_test = False
 
     # _______________________________________________________________________________________________
