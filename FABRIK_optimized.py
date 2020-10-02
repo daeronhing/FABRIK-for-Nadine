@@ -13,8 +13,8 @@ from Classic_FK_optimized import get_wrist_position
 joint_positions = {
                     'origin'     : vector(0, 0, 0),
                     'shoulder'   : vector(13.7, 0, 0),
-                    'elbow'      : vector(13.7, -29.4828, -9.5795),
-                    'wrist'       : vector(13.7, -54.3053, -17.6449)
+                    'elbow'      : vector(13.7, -29.48275201, -9.579526826),
+                    'wrist'       : vector(13.7, -54.30532708, -17.64487038)
                   }
 
 
@@ -230,7 +230,7 @@ def iteration(t,tolerance):
     # ________________________________Test if wrist is out of boundary_______________________________
     # _______________________________________________________________________________________________
 
-        if(deg(theta_uturn)<0):
+        if(deg(theta_uturn)<0 and abs(deg(theta_uturn))>0.00001):
             V = joint_positions['elbow'] - joint_positions['wrist']
             k = joint_positions['shoulder'] - joint_positions['elbow']
             k = k/(k.length)
@@ -244,8 +244,8 @@ def iteration(t,tolerance):
 
         iterations += 1
         if(iterations > 100):
-            raise ValueError('Target is unreachable (iterations > 100)')
-            break
+            print('Target is unreachable (iterations > 100)')
+            return(deg([theta_shoulder, theta_arm_ud, theta_arm_oc, theta_uturn, theta_elbow]))
 
     print('Iterations = ',iterations)
     return(deg([theta_shoulder, theta_arm_ud, theta_arm_oc, theta_uturn, theta_elbow]))
