@@ -26,7 +26,7 @@ Function *generate_line()* will return time stamp and 8-bit value of all joints 
 
 All functions above are implemented in *generate()* and *plot()* to return readable file for Wten or graph for user to observe and analyze.
 
-Sample code:
+**Sample code:**
 
 via_point1 = [x,y,z]
 via_point2 = [X,Y,Z]
