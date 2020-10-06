@@ -29,11 +29,15 @@ All functions above are implemented in *generate()* and *plot()* to return reada
 **Sample code:**
 
 via_point1 = [x,y,z]
+
 via_point2 = [X,Y,Z]
 
 move(via_point1, 60)
+
 hold(30)
+
 move(via_point2, 60)
+
 hold(30)
 
 generate()
